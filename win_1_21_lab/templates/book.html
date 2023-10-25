@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Book</title>
-</head>
-<body>
-    <h1>Books</h1>
-    <ul>
-        {% for i in book_key %}
-        <li>
-            <h2>{{i.title}}</h2>
-            <img src="{{i.image.url}}" alt="book">
-            <p><em>{{i.description}}</em></p>
-            <p><strong>{{i.cost}} C</strong></p>
-            <p>{{i.created_date_book}}</p>
-        </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% include 'header.html' %}
+
+    <main class="container">
+        <br><center><span class="badge text-center text-dark"><h1>Books</h1></span></center>
+        <div class="row">
+            {% for i in book_key %}
+            <div class="col-md-6 mb-2 mt-2 h-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{i.image.url}}" alt="book" width="210">
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{i.title}}</h3>
+                        <p>{{i.genre}}</p>
+                        <p>{{i.cost}} ₽</p>
+                        <p class="card-text mb-auto">{{i.description|slice:":80"}}...</p>
+                        <a href="/book_detail/{{i.id}}/" class="btn btn-dark">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+{% include 'footer.html' %}

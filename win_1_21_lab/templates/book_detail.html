@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+
+    <br><center><span class="badge text-center text-dark"><h1>{{book_key.title}}</h1></span></center>
+    <div class="container col-xl-8 px-4 py-3">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="{{book_key.image.url}}" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <p class="lead">Жанр: {{book_key.genre}}</p>
+                <p class="lead">Стоимость: {{book_key.cost}} ₽</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Купить</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">В Корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container col-xl-8 px-4 py-3">
+    <br><span class="badge text-center text-dark"><h1>Описание</h1></span>
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <p class="lead">{{book_key.description}}</p>
+        </div>
+    </div>
