@@ -18,3 +18,12 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ReviewBook(models.Model):
+    book_title = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='review_object')
+    text_review = models.TextField()
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Review for {self.book_title}"

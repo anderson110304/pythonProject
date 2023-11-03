@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+
+<body>
+    <div class="container col-xl-8 px-4 py-3">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <form action="/add-comment/"  method="POST" enctype="multipart/form-data" class="needs-validation w-100 text-center" novalidate="">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-dark btn-lg" type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+{% include 'footer.html' %}
