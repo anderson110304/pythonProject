@@ -1,22 +1,23 @@
 {% include 'header.html' %}
 
-    <br>
     <div style="text-align: center;">
         <span class="badge text-center text-dark">
-            <h1>{{book_key.title}}</h1>
+            <h1>{{object.title}}</h1>
         </span>
     </div>
     <div class="container col-xl-8 px-4 py-3">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="{{book_key.image.url}}" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy" alt="book_cover">
+                <img src="{{object.image.url}}" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy" alt="book">
             </div>
             <div class="col-lg-6">
-                <p class="lead">Жанр: {{book_key.genre}}</p>
-                <p class="lead">Стоимость: {{book_key.cost}} ₽</p>
-                <p class="lead">Год выпуска: {{book_key.created_date_book}}</p>
+                <p class="lead">Жанр: {{object.genre}}</p>
+                <p class="lead">Стоимость: {{object.cost}} ₽</p>
+                <p class="lead">Год выпуска: {{object.created_date_book}}</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <a type="button" href="/add-comment/" class="btn btn-dark btn-lg px-4 me-md-2">Оставить отзыв</a>
+                    <a type="button" href="/book_list/{{object.id}}/update/" class="btn btn-dark btn-lg px-4 me-md-2">Изменить</a>
+                    <a type="button" href="/book_list/{{object.id}}/delete/" class="btn btn-dark btn-lg px-4 me-md-2">Удалить</a>
                 </div>
             </div>
         </div>
@@ -24,7 +25,7 @@
     <div class="container col-xl-8 px-4 py-3">
         <br><span class="badge text-center text-dark"><h1>Описание</h1></span>
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                    <p class="lead">{{book_key.description}}</p>
+                <p class="lead">{{object.description}}</p>
             </div>
         <div class="container">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -38,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for i in book_key.review_object.all %}
+                            {% for i in object.review_object.all %}
                             <tr>
                                 <td>{{i.created_at}}</td>
                                 <td>{{i.text_review}}</td>

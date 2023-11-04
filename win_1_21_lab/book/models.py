@@ -12,7 +12,7 @@ class Book(models.Model):
     genre = models.CharField(max_length=100, choices=GENRE, default=GENRE[0], null=True)
     title = models.CharField(max_length=30)
     description = models.TextField()
-    image = models.ImageField(upload_to='')
+    image = models.FileField(upload_to='', null=True)
     cost = models.IntegerField()
     created_date_book = models.DateField(null=True)
 
