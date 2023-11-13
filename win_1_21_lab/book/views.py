@@ -67,7 +67,7 @@ def create_book_view(request):
     if method == 'POST':
         form = forms.ReviewForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()  # Сохраняем форму и получаем объект
+            form.save()
             return redirect('/')
     else:
         form = forms.ReviewForm()
